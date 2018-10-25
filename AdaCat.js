@@ -5,8 +5,9 @@ class AdaCat {
     this.hunger = 5
     this.isSleeping = false
     this.size = 30
+               
   }
-
+// if function for setHunger
   setHunger(newHunger) {
     if (newHunger < 0) {
       newHunger = 0
@@ -16,7 +17,7 @@ class AdaCat {
     }
     this.hunger = newHunger
   }
-
+// this function would tell the user if the cat is sleeping and more information about the cat for example, their owner and weight.
   getDescription() {
     var sleepLine
     if (this.isSleeping) {
@@ -31,11 +32,40 @@ class AdaCat {
       'they weigh ' + this.size + ' tonnes.',
       'their health is ' + this.getHealth() + '/30.',
       sleepLine
-    ]
 
+    ]
+    var tiredness
+    if(this.feed) {
+      tiredness++ 
+    }
+    if(this.play) {
+      tiredness = tiredness + 3
+    }
+    if(this.nap){
+      tiredness = 0
+    }
+    var message
+    message
+    if(this.feed){
+      message = 'the cat is eating'
+    } else{
+      message 
+    }
+    if(this.play){
+      message = 'the cat is playing'
+    } else{
+      message
+    }
+    if(this.nap){
+      message = 'the cat is sleeping'
+    } else{
+      message 
+    }
+
+    
     return lines.join('\n')
   }
-
+// this is to determine if the cat is hungry or not
   feed() {
     var hunger = this.hunger - 1
 
@@ -45,11 +75,11 @@ class AdaCat {
 
     this.setHunger(hunger)
   }
-
+// to see if the cat is sleeping
   nap() {
     this.isSleeping = true
   }
-
+// to see if the cat is awake
   wakeUp() {
     this.isSleeping = false
   }
